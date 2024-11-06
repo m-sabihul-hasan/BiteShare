@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct LogInView: View {
     @State private var selectedOption = "Option 1"
         let options = ["Option 1", "Option 2", "Option 3", "Option 4"]
     
@@ -63,5 +63,5 @@ struct SwiftUIView: View {
 }
 
 #Preview {
-    SwiftUIView()
+    LogInView()
 }
