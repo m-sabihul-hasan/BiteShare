@@ -9,10 +9,11 @@ import SwiftUI
 
 struct LogInView: View {
     @State private var selectedOption = "Option 1"
-        let options = ["Option 1", "Option 2", "Option 3", "Option 4"]
+    @State private var isNextPageActive = false  // Tracks if navigation should happen
+    let options = ["Option 1", "Option 2", "Option 3", "Option 4"]
     
     var body: some View {
-        NavigationView
+        NavigationStack
         {
             VStack {
                 VStack {
@@ -32,35 +33,37 @@ struct LogInView: View {
                     }
                     .pickerStyle(MenuPickerStyle())
                     .frame(width: 350 , height: 50)
-                    //            .padding()
                     .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.black, lineWidth: 1)  // Border around the picker
-                    )
-//                    .shadow(radius: 5)  // Add shadow for effect
-                    .cornerRadius(8)
+                            .stroke(Color.black, lineWidth: 0.2))
                     
-                    Text("Selected: \(selectedOption)")
-                        .padding()
-                }
-                
-                ZStack
-                {
-                    Image("Path")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    // NavigationLink with programmatic activation
+                    NavigationLink(destination: ContentView(), isActive: $isNextPageActive){
+                        EmptyView()
+                    }
                     
-                    Image("Path2")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .offset(y: 64)
                 }
-                .offset(y: 100)
+                .onChange(of: selectedOption) {
+                    isNextPageActive = true // Trigger navigation on selection change
+                }
+                    ZStack
+                    {
+                        Image("Path")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        
+                        Image("Path2")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .offset(y: 64)
+                    }
+                    .offset(y: 100)
+                }
             }
         }
     }
-}
 
 #Preview {
     LogInView()
