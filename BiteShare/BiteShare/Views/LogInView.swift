@@ -21,23 +21,38 @@ struct LogInView: View {
                         .font(.largeTitle)
                         .bold()
                         .padding()
-                    
-                    Picker("Select an option", selection: $selectedOption) {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
-                                .font(.title)
-                                .foregroundColor(Color.black)
-                                .tag(option)
-                            
+                    HStack{
+                        
+                        // Custom dropdown button with Menu
+                        Menu {
+                            ForEach(options, id: \.self) { option in
+                                Button(action: {
+                                    selectedOption = option
+                                }) {
+                                    Text(option)
+                                }
+                            }
+                        } label: {
+                            HStack {
+                                Text(selectedOption)
+                                    .font(.title3)
+                                    .foregroundColor(Color.black)
+                                
+                                Image(systemName: "plus.circle.fill")
+                                    .resizable()
+                                    .foregroundColor(.blue)
+                                    .offset(x: 100)
+                                    .frame(width: 20, height: 20)
+                            }
+                            .frame(width: 350, height: 50)
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 0.2)
+                            )
                         }
                     }
-                    .pickerStyle(MenuPickerStyle())
-                    .frame(width: 350 , height: 50)
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.black, lineWidth: 0.2))
                     
                     // NavigationLink with programmatic activation
                     NavigationLink(destination: ContentView(), isActive: $isNextPageActive){
