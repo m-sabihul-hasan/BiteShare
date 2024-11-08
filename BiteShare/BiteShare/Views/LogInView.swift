@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct LogInView: View {
-    @State private var selectedOption = "Option 1"
+    @State private var selectedOption = "Filipo Caliendo"
     @State private var isNextPageActive = false  // Tracks if navigation should happen
-    let options = ["Option 1", "Option 2", "Option 3", "Option 4"]
+    let options = ["Filipo Caliendo", "Muhammad Sabihul Hasan", "Sakshi Sindgi", "Option 4"]
     
     var body: some View {
         NavigationStack
@@ -40,8 +40,8 @@ struct LogInView: View {
                                 
                                 Image(systemName: "plus.circle.fill")
                                     .resizable()
-                                    .foregroundColor(.blue)
-                                    .offset(x: 100)
+                                    .foregroundColor(Color(hex: "#4298A5"))
+                                    .offset(x: 90)
                                     .frame(width: 20, height: 20)
                             }
                             .frame(width: 350, height: 50)
