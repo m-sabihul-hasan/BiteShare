@@ -10,15 +10,17 @@ import SwiftUI
 struct HomeView: View {
     
     @State var text: String = ""
+    @State var showModal: Bool = false
     
     var body: some View {
-        ZStack {
+        NavigationStack{
             ZStack {
-                Image("bg")
-                    .resizable()
-                    .ignoresSafeArea()
-            }
-            .background(Color(hex: "#20808E"))
+                ZStack {
+                    Image("bg")
+                        .resizable()
+                        .ignoresSafeArea()
+                }
+                .background(Color(hex: "#20808E"))
                 HStack{
                     Image(systemName: "magnifyingglass")
                         .renderingMode(.template)
@@ -44,22 +46,32 @@ struct HomeView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 20, height: 20)
                         .foregroundColor(.white)
-
-            }
+                    
+                }
                 .padding(.horizontal)
                 .padding(.vertical)
                 .background(RoundedRectangle(cornerRadius: 15, style:.continuous)
                     .fill(.white.opacity(0.1)))
                 .offset(y: -300)
-            
-            Button("New Post")
-            {
                 
+                Text("What's Special for today?")
+                    .font(.title2)
+                    .bold()
+                    .offset(y: -100)
+                
+                Button(action: {
+                    showModal.toggle()
+                }, label: {
+                    Text("New Post")
+                })
+                .padding()
+                .bold()
+                .background(Color(hex: "#FF9640"))
+                .foregroundStyle(.black)
+                .cornerRadius(15)
+                .offset(y: 250)
             }
-            .padding()
-            .background(.purple)
-            .foregroundStyle(.black)
-            .cornerRadius(15)
+            .sheet(isPresented: $showModal, content: {PostBiteModal(showModal: $showModal)})
         }
     }
 }
