@@ -63,7 +63,7 @@ struct HomeView: View {
                 Button(action: {
                     showModal.toggle()
                 }, label: {
-                    Text("New Post")
+                    Text("Share a Bite")
                 })
                 .padding()
                 .bold()

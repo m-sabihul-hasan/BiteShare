@@ -21,7 +21,6 @@ struct TabsView: View {
     }
 }
 
-
 #Preview {
     TabsView()
 }
