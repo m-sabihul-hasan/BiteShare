@@ -18,10 +18,7 @@ struct PostBiteModal: View {
     var body: some View {
         NavigationStack{
             Form {
-                Section()
-                {
-                    
-                }
+                
                 Section() {
                     TextField("Name of Dish", text: $name)
                 }
@@ -32,9 +29,10 @@ struct PostBiteModal: View {
                     HStack {
                         Text("Serving Size")
                         Spacer() // Pushes the counter to the right
+                        
                         // Minus button
                         Button(action: {
-                            if count > 0 { count -= 1 } // Decrease count, but avoid negative values
+                            if count > 0 {count -= 1} // Decrease count, but avoid negative values
                         }) {
                             Image(systemName: "minus.circle")
                                 .foregroundColor(.red)
@@ -55,7 +53,6 @@ struct PostBiteModal: View {
                                 .font(.title2)
                         }
                     }
-                    .padding(.vertical, 8) // Optional: Padding for better touch area
                 }
             }
             .toolbar {
@@ -70,7 +67,8 @@ struct PostBiteModal: View {
                     }
                 }
             }
-            .navigationTitle("Post Your Perfect Bite")
+            .navigationTitle("Share a Bite?")
+            
         }
     }
     

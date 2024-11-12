@@ -19,6 +19,7 @@ struct HomeView: View {
                     Image("bg")
                         .resizable()
                         .ignoresSafeArea()
+                    
                 }
                 .background(Color(hex: "#20808E"))
                 HStack{
