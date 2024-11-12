@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CookPartyView: View {
     
-    @Environment(HostViewModel.self) var hostVM
+    var hostVM = HostViewModel()
     @State var showModal: Bool = false
     
     var body: some View {
@@ -22,10 +22,13 @@ struct CookPartyView: View {
                         PartyDetailView()
                     } label: {
                         HStack {
-                            host.profileImage
+                            host.profileImage?
+                                .resizable()
+                                .frame(width: 25, height: 30)
+                                .offset(x: -5)
                             
-                            Text(host.name)
-                            Text(host.surname)
+                            Text(host.name + "'s Party")
+                                .padding(.horizontal, 3)
                         }
                     }
                 }
@@ -34,7 +37,6 @@ struct CookPartyView: View {
             }
             .sheet(isPresented: $showModal, content: {PostBiteModal(showModal: $showModal)})
             .toolbar {
-                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         showModal.toggle()
