@@ -15,6 +15,7 @@ struct Host: Identifiable {
     var surname: String
     var description: String = "No Description"
     var location: String = "No Location"
+    var dateOfEvent: String = "No Date"
     var spot: Int = 0
     var nationality: String = "🇪🇺"
     var profileImage: Image?  // Optional Image property
