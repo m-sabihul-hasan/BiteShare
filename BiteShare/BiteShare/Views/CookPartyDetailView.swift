@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CPartyDetailView: View {
+struct CookPartyDetailView: View {
     
     @State var showModal: Bool = false
     
@@ -74,7 +74,7 @@ struct CPartyDetailView: View {
 
 
 #Preview {
-    CPartyDetailView(
+    CookPartyDetailView(
         host:     Host(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("girl"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "Saturday 16th November 2024 at 19:00", spot: 3)
     )
 }
