@@ -19,7 +19,7 @@ struct CookPartyView: View {
                 ForEach(hostVM.hosts) { host in
                     
                     NavigationLink {
-                        PartyDetailView()
+                        CPartyDetailView(host: host)
                     } label: {
                         HStack {
                             host.profileImage?
@@ -27,7 +27,7 @@ struct CookPartyView: View {
                                 .frame(width: 25, height: 30)
                                 .offset(x: -5)
                             
-                            Text(host.name + "'s Party")
+                            Text("\(host.name)" + "'s Party " + "\(host.nationality)")
                                 .padding(.horizontal, 3)
                         }
                     }
@@ -35,7 +35,7 @@ struct CookPartyView: View {
 //                .onDelete(perform: hostVM.delete)
                 
             }
-            .sheet(isPresented: $showModal, content: {PostBiteModal(showModal: $showModal)})
+            .sheet(isPresented: $showModal, content: {PostBiteModalView(showModal: $showModal)})
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {

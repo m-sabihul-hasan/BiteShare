@@ -12,11 +12,11 @@ import SwiftUI
 class HostViewModel {
     
     var hosts = [
-        Host(name: "Muhammad Sabihul", surname: "Hasan", description: "Let's Party", spot: 5, profileImage: Image("boy")),
-        Host(name: "Filippo", surname: "Caliendo", description: "I'm strong", spot: 4, profileImage: Image("boy")),
-        Host(name: "Maria", surname: "Petrillo", description: "I'm strong", spot: 3, profileImage: Image("girl")),
-        Host(name: "Sakshi", surname: "Anil", description: "I'm strong", spot: 2, profileImage: Image("girl")),
-        Host(name: "Maryam", surname: "IDK", description: "I'm invincible", spot: 2, profileImage: Image("girl"))
+        Host(name: "Sabihul", surname: "Hasan", description: "Let's Party", location: "Pozzouli ", spot: 5, nationality: "🇵🇰", profileImage: Image("boy")),
+        Host(name: "Filippo", surname: "Caliendo", description: "I'm strong", spot: 4, nationality: "🇮🇹", profileImage: Image("boy")),
+        Host(name: "Maria", surname: "Petrillo", description: "I'm strong", spot: 3, nationality: "🇮🇹", profileImage: Image("girl")),
+        Host(name: "Sakshi", surname: "Anil", description: "I'm strong", spot: 2, nationality: "🇮🇳", profileImage: Image("girl")),
+        Host(name: "Maryam", surname: "IDK", description: "I'm invincible", spot: 2, nationality: "🇮🇷", profileImage: Image("girl"))
     ]
     
     func add(_ host: Host) {

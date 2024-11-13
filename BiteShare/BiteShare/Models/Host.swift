@@ -14,7 +14,9 @@ struct Host: Identifiable {
     var name: String
     var surname: String
     var description: String = "No Description"
+    var location: String = "No Location"
     var spot: Int = 0
+    var nationality: String = "🇪🇺"
     var profileImage: Image?  // Optional Image property
     
 //    var profileImageData: Data?  // Data property to store the image persistently

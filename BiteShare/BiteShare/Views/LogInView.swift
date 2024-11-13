@@ -55,7 +55,7 @@ struct LogInView: View {
                     }
                     
                     // NavigationLink with programmatic activation
-                    NavigationLink(destination: ContentView(), isActive: $isNextPageActive){
+                    NavigationLink(destination: TabsView(), isActive: $isNextPageActive){
                         EmptyView()
                     }
                     
