@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-struct PostBiteModalView: View {
+struct PostBiteModal: View {
     
     @State var selectedItem: PhotosPickerItem? = nil
     @State var selectedImage: Image? = nil
@@ -123,7 +123,7 @@ struct PostBiteModalView: View {
 }
 
 #Preview {
-    PostBiteModalView(showModal: .constant(true))
+    PostBiteModal(showModal: .constant(true))
 }
 
 

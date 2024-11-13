@@ -22,7 +22,7 @@ struct CookPartyView: View {
                         CPartyDetailView(host: host)
                     } label: {
                         HStack {
-                            host.profileImage?
+                            host.profileImage
                                 .resizable()
                                 .frame(width: 25, height: 30)
                                 .offset(x: -5)
@@ -35,7 +35,7 @@ struct CookPartyView: View {
 //                .onDelete(perform: hostVM.delete)
                 
             }
-            .sheet(isPresented: $showModal, content: {PostBiteModalView(showModal: $showModal)})
+            .sheet(isPresented: $showModal, content: {CookPartyModal(showModal: $showModal)})
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {

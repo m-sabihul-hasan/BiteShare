@@ -72,7 +72,7 @@ struct HomeView: View {
                 .cornerRadius(15)
                 .offset(y: 250)
             }
-            .sheet(isPresented: $showModal, content: {PostBiteModalView(showModal: $showModal)})
+            .sheet(isPresented: $showModal, content: {PostBiteModal(showModal: $showModal)})
         }
     }
 }

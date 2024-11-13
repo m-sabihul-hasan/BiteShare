@@ -12,11 +12,11 @@ import SwiftUI
 class HostViewModel {
     
     var hosts = [
-        Host(name: "Sabihul", surname: "Hasan", description: "Let's Party", location: "Pozzouli 354", dateOfEvent: "", spot: 5, nationality: "🇵🇰", profileImage: Image("boy")),
-        Host(name: "Filippo", surname: "Caliendo", description: "I'm strong", location: "Pozzouli 354", dateOfEvent: "", spot: 4, nationality: "🇮🇹", profileImage: Image("boy")),
-        Host(name: "Maria", surname: "Petrillo", description: "I'm strong", location: "Pozzouli 354", dateOfEvent: "", spot: 3, nationality: "🇮🇹", profileImage: Image("girl")),
-        Host(name: "Sakshi", surname: "Anil", description: "I'm strong", location: "Pozzouli 354", dateOfEvent: "", spot: 2, nationality: "🇮🇳", profileImage: Image("girl")),
-        Host(name: "Maryam", surname: "IDK", description: "I'm invincible", location: "Pozzouli 354", dateOfEvent: "", spot: 2, nationality: "🇮🇷", profileImage: Image("girl"))
+        Host(name: "Sabihul", surname: "Hasan", nationality: "🇵🇰", profileImage: Image("boy"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "", spot: 5),
+        Host(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("boy"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "", spot: 4),
+        Host(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("girl"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "", spot: 3),
+        Host(name: "Sakshi", surname: "Anil", nationality: "🇮🇳", profileImage: Image("girl"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "", spot: 2),
+        Host(name: "Maryam", surname: "IDK", nationality: "🇮🇷", profileImage: Image("girl"), description: "I'm invincible", location: "Pozzouli 354", dateOfEvent: "", spot: 2)
     ]
     
     func add(_ host: Host) {

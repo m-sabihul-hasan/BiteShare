@@ -25,7 +25,7 @@ struct CPartyDetailView: View {
                 
                 HStack{
                     
-                    host.profileImage?
+                    host.profileImage
                         .resizable()
                         .scaledToFit()
                         .scaledToFit()
@@ -67,7 +67,7 @@ struct CPartyDetailView: View {
             .cornerRadius(15)
             .offset(y: 50)
         }
-        .sheet(isPresented: $showModal, content: {PostBiteModalView(showModal: $showModal)})
+        .sheet(isPresented: $showModal, content: {PostBiteModal(showModal: $showModal)})
     }
     
 }
@@ -75,6 +75,6 @@ struct CPartyDetailView: View {
 
 #Preview {
     CPartyDetailView(
-        host:     Host(name: "Maria", surname: "Petrillo", description: "I wanna make pasta Nerano join me if you are interested Saturday night", location: "Pozzouli 354", dateOfEvent: "Saturday 16th November 2024 at 19:00", spot: 3, nationality: "🇮🇹", profileImage: Image("girl"))
+        host:     Host(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("girl"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "Saturday 16th November 2024 at 19:00", spot: 3)
     )
 }
