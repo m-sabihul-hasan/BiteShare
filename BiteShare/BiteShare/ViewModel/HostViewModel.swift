@@ -9,14 +9,19 @@ import Foundation
 import SwiftUI
 
 //@Observable
-class HostViewModel {
+class HostViewModel: ObservableObject{
     
     var hosts = [
-        Host(name: "Sabihul", surname: "Hasan", nationality: "🇵🇰", profileImage: Image("boy"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "", spot: 5),
-        Host(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("boy"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "", spot: 4),
-        Host(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("girl"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "", spot: 3),
-        Host(name: "Sakshi", surname: "Anil", nationality: "🇮🇳", profileImage: Image("girl"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "", spot: 2),
-        Host(name: "Maryam", surname: "IDK", nationality: "🇮🇷", profileImage: Image("girl"), description: "I'm invincible", location: "Pozzouli 354", dateOfEvent: "", spot: 2)
+        Host(profile: Profile(name: "Sabihul", surname: "Hasan", nationality: "🇵🇰", profileImage: Image("boy")),
+             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 5),
+        Host(profile: Profile(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("boy")),
+             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 4),
+        Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("girl")),
+             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 3),
+        Host(profile: Profile(name: "Sakshi", surname: "Anil", nationality: "🇮🇳", profileImage: Image("girl")),
+             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 2),
+        Host(profile: Profile(name: "Maryam", surname: "IDK", nationality: "🇮🇷", profileImage: Image("girl")),
+             description: "I'm invincible", location: "Pozzouli 354", spot: 2)
     ]
     
     func add(_ host: Host) {

@@ -20,6 +20,8 @@ struct PostBiteModal: View {
     
     @Binding var showModal: Bool
     
+    @StateObject var profileVM = ProfileViewModel()
+    
     var body: some View {
         NavigationStack{
             Form {
@@ -35,7 +37,7 @@ struct PostBiteModal: View {
                 }
                 .listRowInsets(EdgeInsets()) // Remove default insets for a full-width appearance
                 .background(Color(UIColor.systemGroupedBackground)) // Matches form background color
-                .frame(width: .infinity, height: 10)
+                .frame(height: 10)
                 
                 Section()
                 {
@@ -79,7 +81,17 @@ struct PostBiteModal: View {
                 
                 
                 Section() {
-                    TextField("Chef's Name", text: $name)
+                    Menu {
+                        ForEach(profileVM.profiles) { profile in
+                            Button("\(profile.name) \(profile.surname)") {
+                                // Update the selected profile in the view model
+                                profileVM.selectedProfile = profile
+                            }
+                        }
+                    } label: {
+                        Text(profileVM.selectedProfile.map { "\($0.name) \($0.surname)" } ?? "Select Profile")
+                            .foregroundStyle(.black)
+                    }
                 }
                 
                 Section() {

@@ -16,5 +16,4 @@ struct Profile: Identifiable {
     var nationality: String = "🇪🇺"
     var profileImage: Image = Image("noimage")
     
-    
 }

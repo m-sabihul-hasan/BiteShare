@@ -11,14 +11,10 @@ import SwiftUI
 struct Host: Identifiable {
     
     var id: UUID = UUID()
-    var name: String
-    var surname: String
-    var nationality: String = "🇪🇺"
-    var profileImage: Image = Image("noimage")
-
+    var profile: Profile
     var description: String = "No Description"
     var location: String = "No Location"
-    var dateOfEvent: String = "No Date"
+    var dateOfEvent: Date = Date()
     var spot: Int = 0
     
     

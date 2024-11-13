@@ -26,3 +26,5 @@ class ProfileViewModel: ObservableObject {
 //        self.selectedProfile = profiles.first
 //    }
 }
+
+

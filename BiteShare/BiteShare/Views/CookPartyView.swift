@@ -18,32 +18,37 @@ struct CookPartyView: View {
             List {
                 ForEach(hostVM.hosts) { host in
                     
-                    NavigationLink {
-                        CPartyDetailView(host: host)
-                    } label: {
+                    NavigationLink(destination: CookPartyDetailView(host: host)) {
+                        
                         HStack {
-                            host.profileImage
+                            // Extract the image part to avoid inline modification
+                            let profileImage = host.profile.profileImage
+                            profileImage
                                 .resizable()
                                 .frame(width: 25, height: 30)
                                 .offset(x: -5)
                             
-                            Text("\(host.name)" + "'s Party " + "\(host.nationality)")
+                            // Extract the text part for easier readability
+                            let partyText = "\(host.profile.name)'s Party \(host.profile.nationality)"
+                            Text(partyText)
                                 .padding(.horizontal, 3)
                         }
                     }
                 }
-//                .onDelete(perform: hostVM.delete)
-                
+                // Uncomment if you want to add delete functionality
+                // .onDelete(perform: hostVM.delete)
             }
-            .sheet(isPresented: $showModal, content: {CookPartyModal(showModal: $showModal)})
+            .sheet(isPresented: $showModal) {
+                CookPartyModal(showModal: $showModal)
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         showModal.toggle()
-                    }, label: {
+                    }) {
                         Image(systemName: "plus")
-                            .foregroundStyle(.black)
-                    })
+                            .foregroundColor(.black)
+                    }
                     .padding()
                 }
                 ToolbarItem(placement: .topBarLeading) {
@@ -57,6 +62,7 @@ struct CookPartyView: View {
         }
     }
 }
+
 #Preview {
     CookPartyView()
 }

@@ -19,13 +19,13 @@ struct CookPartyDetailView: View {
         VStack {
             VStack {
                 
-                Text("Book \(host.name)'s Party")
+                Text("Book \(host.profile.name)'s Party")
                     .font(.title)
                     .bold()
                 
                 HStack{
                     
-                    host.profileImage
+                    host.profile.profileImage
                         .resizable()
                         .scaledToFit()
                         .scaledToFit()
@@ -38,10 +38,10 @@ struct CookPartyDetailView: View {
                         .padding()
                     
                     VStack{
-                        Text("\(host.name) \(host.surname)")
+                        Text("\(host.profile.name) \(host.profile.surname)")
                             .italic()
                         
-                        Text("\(host.nationality)")
+                        Text("\(host.profile.nationality)")
                     }
                 }
                 
@@ -75,6 +75,6 @@ struct CookPartyDetailView: View {
 
 #Preview {
     CookPartyDetailView(
-        host:     Host(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("girl"), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", dateOfEvent: "Saturday 16th November 2024 at 19:00", spot: 3)
+        host:     Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("girl")), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 3)
     )
 }
