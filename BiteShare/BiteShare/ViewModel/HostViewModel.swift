@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 //@Observable
-class HostViewModel: ObservableObject{
+class HostViewModel {
     
     var hosts = [
         Host(profile: Profile(name: "Sabihul", surname: "Hasan", nationality: "🇵🇰", profileImage: Image("sabih")),

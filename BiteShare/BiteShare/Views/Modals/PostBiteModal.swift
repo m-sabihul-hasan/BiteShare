@@ -10,6 +10,8 @@ import PhotosUI
 
 struct PostBiteModal: View {
     
+    //    @Environment(BiteViewModel.self) var biteVM
+    
     @State var selectedItem: PhotosPickerItem? = nil
     @State var selectedImage: Image? = nil
     
@@ -20,14 +22,14 @@ struct PostBiteModal: View {
     
     @Binding var showModal: Bool
     
-    @StateObject var profileVM = ProfileViewModel()
+    @ObservedObject var profileVM = ProfileViewModel()
     
     var body: some View {
         NavigationStack{
             Form {
                 Section {
                     HStack {
-                        Spacer() // Center-align the text
+                        Spacer()
                         Text("Share a Bite")
                             .font(.title)
                             .fontWeight(.bold)
@@ -35,7 +37,7 @@ struct PostBiteModal: View {
                         Spacer()
                     }
                 }
-                .listRowInsets(EdgeInsets()) // Remove default insets for a full-width appearance
+                .listRowInsets(EdgeInsets())
                 .background(Color(UIColor.systemGroupedBackground)) // Matches form background color
                 .frame(height: 10)
                 
@@ -59,7 +61,6 @@ struct PostBiteModal: View {
                     }
                     .onChange(of: selectedItem) {
                         Task {
-                            // Load image data if an item is selected
                             if let selectedItem,
                                let data = try? await selectedItem.loadTransferable(type: Data.self),
                                let uiImage = UIImage(data: data) {
@@ -69,7 +70,6 @@ struct PostBiteModal: View {
                         }
                     }
                     
-                    // Display the selected image if available
                     if let selectedImage {
                         selectedImage
                             .resizable()
@@ -91,6 +91,7 @@ struct PostBiteModal: View {
                     } label: {
                         Text(profileVM.selectedProfile.map { "\($0.name) \($0.surname)" } ?? "Select Profile")
                             .foregroundStyle(.black)
+                            .bold()
                     }
                 }
                 
@@ -115,16 +116,24 @@ struct PostBiteModal: View {
                 }
                 
             }
-            //            .navigationTitle("Share a Bite?")
-            //            .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
                         showModal.toggle()
                     }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
+                        
+                        //                        if let selectedProfile = profileVM.selectedProfile {
+                        //                            let newBite = Bite(
+                        //                                profile: selectedProfile,
+                        //                                dishName: dishName,
+                        //                                description: description,
+                        //                                servingSize: count,
+                        //                                dishImage: selectedImage ?? Image(systemName: "fork.knife.circle")
+                        //                            )
+                        //                            BiteVM.add(newBite)
                         showModal.toggle()
                     }
                 }
@@ -137,42 +146,3 @@ struct PostBiteModal: View {
 #Preview {
     PostBiteModal(showModal: .constant(true))
 }
-
-
-
-//                Section() {
-//                    HStack {
-//                        Text("Serving Size")
-//                        Spacer()
-//
-//                        // Minus button
-//                        Button(action: {
-//                            if count > 0
-//                            {
-//                                count -= 1
-//                                print("Decremented count: \(count)")
-//                            } // Decrease count, but avoid negative values
-//                        })
-//                        {
-//                            Image(systemName: "minus.circle")
-//                                .foregroundColor(.red)
-//                                .font(.title2)
-//                        }
-//
-//                        // Display current count
-//                        Text("\(count)")
-//                            .font(.title2)
-//                            .frame(minWidth: 40)
-//
-//                        // Plus button
-//                        Button(action: {
-//                            count += 1 // Increase count
-//                            print("Incremented count: \(count)")
-//                        })
-//                        {
-//                            Image(systemName: "plus.circle")
-//                                .foregroundColor(.green)
-//                                .font(.title2)
-//                        }
-//                    }
-//                }

@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 //@Observable
-class BiteViewModel: ObservableObject {
+class BiteViewModel {
     
     // A list of `Bite` objects
     @Published var bites = [
         Bite(profile: Profile(name: "Sabihul", surname: "Hasan", nationality: "🇵🇰", profileImage: Image("sabih")),
-             dishName: "Chicken Biryani", description: "Savor the rich flavors of my aromatic Chicken Biryani—a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed.", servingSize: 4, dishImage: Image("biryani")),
+             dishName: "Chicken Biryani", description: "Savor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed. \n\nSavor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed. \n\nSavor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed.", servingSize: 4, dishImage: Image("biryani")),
         
         Bite(profile: Profile(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("filippo")),
              dishName: "Pizza Margherita", description: "Enjoy the simplicity of my homemade Pizza Margherita—a crisp, thin crust topped with rich San Marzano tomato sauce, fresh mozzarella, and fragrant basil. Each bite is pure Italian tradition, finished with a drizzle of extra-virgin olive oil for an authentic, savory experience.", servingSize: 6, dishImage: Image("pizza")),
@@ -30,13 +30,9 @@ class BiteViewModel: ObservableObject {
         
     ]
     
-    // Optionally, track a selected bite if needed
-    @Published var selectedBite: Bite?
-    
-    // Method to add a new bite
     func addBite(_ bite: Bite) {
-        bites.append(bite)
+        bites.insert(bite, at: 0)
     }
-    
+        
 }
 

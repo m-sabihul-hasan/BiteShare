@@ -13,8 +13,9 @@ struct BiteView: View {
     
     @State var text: String = ""
     @State var showModal: Bool = false
-    @ObservedObject var biteVM = BiteViewModel()
     @State private var currentIndex = 0
+    
+    var biteVM = BiteViewModel()
     
     var body: some View {
         NavigationStack{

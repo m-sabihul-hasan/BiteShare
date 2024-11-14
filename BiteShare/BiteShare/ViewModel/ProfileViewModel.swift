@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-//@Observable
+
 class ProfileViewModel: ObservableObject {
     
     @Published var profiles = [
@@ -21,10 +21,10 @@ class ProfileViewModel: ObservableObject {
     
     @Published var selectedProfile: Profile?
     
-//    init() {
-//        // Default to the first profile in the list if available
-//        self.selectedProfile = profiles.first
-//    }
+    func add(_ profile: Profile) {
+        profiles.insert(profile, at: 0)
+    }
+
 }
 
 

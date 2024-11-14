@@ -10,7 +10,7 @@ import PhotosUI
 
 struct CookPartyModal: View {
     
-    @StateObject var profileVM = ProfileViewModel()
+    @ObservedObject var profileVM = ProfileViewModel()
     
     @State var selectedItem: PhotosPickerItem? = nil
     @State var selectedImage: Image? = nil
@@ -23,9 +23,9 @@ struct CookPartyModal: View {
     @Binding var showModal: Bool
     
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             Form {
-                Section {
+                Section() {
                     VStack  {
                         HStack {
                             Spacer() // Center-align the text
@@ -81,7 +81,6 @@ struct CookPartyModal: View {
                 }
                 .listRowInsets(EdgeInsets()) // Remove default insets for a full-width appearance
                 .background(Color(UIColor.systemGroupedBackground)) // Matches form background color
-                //                .frame(width: .infinity, height: 10)
                 
                 
                 Section() {
@@ -113,10 +112,9 @@ struct CookPartyModal: View {
                         }
                     }
                 }
+              
                 
             }
-            //            .navigationTitle("Share a Bite?")
-            //            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") {
@@ -129,10 +127,11 @@ struct CookPartyModal: View {
                     }
                 }
             }
-            
         }
+        
     }
 }
+
 
 #Preview {
     CookPartyModal(showModal: .constant(true))

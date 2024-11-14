@@ -10,7 +10,6 @@ import SwiftUI
 struct BiteDetailView: View {
     
     var bite: Bite
-    @Environment(\.dismiss) var dismiss // Allows us to dismiss the view programmatically
     
     var body: some View {
         NavigationStack {
@@ -64,6 +63,7 @@ struct BiteDetailView: View {
                     
                 }
                 .padding(.horizontal, 20)
+                .offset(y: -10)
                 
                 ScrollView
                 {
@@ -74,8 +74,11 @@ struct BiteDetailView: View {
                         .padding()
                 }
                 .frame(height: 200)
+                .padding()
+                .offset(y: -30)
                 
-//                Spacer()
+                
+                Spacer()
                 
                 HStack {
                     Spacer()
@@ -109,18 +112,19 @@ struct BiteDetailView: View {
                     Spacer()
                     
                 }
-//                .offset(y: - 30)
+                .offset(y: -20)
 
                 Spacer()
             }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button("Cancel") {
+//                        dismiss()
+//                    }
+//                }
+//            }
         }
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
