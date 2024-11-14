@@ -23,7 +23,9 @@ struct BiteShareApp: App {
                             }
                         }
                 } else {
-                    TabsView() // Main content view after the launch screen
+                    TabsView()
+                        .environment(BiteViewModel())
+                        .environment(HostViewModel())
                 }
             }
         }}

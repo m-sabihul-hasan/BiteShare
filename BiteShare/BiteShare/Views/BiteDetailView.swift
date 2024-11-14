@@ -21,7 +21,6 @@ struct BiteDetailView: View {
                         .scaledToFill()
                         .frame(width: UIScreen.main.bounds.width, height: 350)
                         .cornerRadius(15)
-                    //                .padding()
                     
                     VStack {
                         Spacer()

@@ -10,13 +10,15 @@ import PhotosUI
 
 struct CookPartyModal: View {
     
+    @Environment(HostViewModel.self) var hostVM
+    
     @ObservedObject var profileVM = ProfileViewModel()
     
     @State var selectedItem: PhotosPickerItem? = nil
     @State var selectedImage: Image? = nil
     
     @State var dateOfEvent: Date = Date()
-    @State var dishName: String = ""
+    @State var location: String = ""
     @State var description: String = ""
     @State var count: Int = 0
     
@@ -94,7 +96,7 @@ struct CookPartyModal: View {
                 }
                 
                 Section() {
-                    TextField("Where", text: $dishName)
+                    TextField("Where", text: $location)
                 }
                 Section() {
                     TextField("Description", text: $description)
@@ -112,7 +114,7 @@ struct CookPartyModal: View {
                         }
                     }
                 }
-              
+                
                 
             }
             .toolbar {
@@ -123,16 +125,26 @@ struct CookPartyModal: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add") {
-                        showModal.toggle()
+                        if let selectedProfile = profileVM.selectedProfile {
+                            let newHost = Host(
+                                profile: selectedProfile,
+                                description: description,
+                                location: location,
+                                dateOfEvent: dateOfEvent,
+                                spot: count
+                            )
+                            hostVM.add(newHost)
+                            showModal.toggle()
+                        }
                     }
                 }
             }
+            
         }
-        
     }
+    
 }
 
-
 #Preview {
-    CookPartyModal(showModal: .constant(true))
+    CookPartyModal(showModal: .constant(true)).environment(HostViewModel())
 }

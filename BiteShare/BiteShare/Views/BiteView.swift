@@ -15,7 +15,8 @@ struct BiteView: View {
     @State var showModal: Bool = false
     @State private var currentIndex = 0
     
-    var biteVM = BiteViewModel()
+//    var biteVM = BiteViewModel()
+    @Environment(BiteViewModel.self) var biteVM
     
     var body: some View {
         NavigationStack{
@@ -162,6 +163,6 @@ struct BiteView: View {
 }
 
 #Preview {
-    BiteView()
+    BiteView().environment(BiteViewModel())
 }
 

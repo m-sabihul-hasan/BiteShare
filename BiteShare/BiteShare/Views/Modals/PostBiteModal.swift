@@ -10,7 +10,7 @@ import PhotosUI
 
 struct PostBiteModal: View {
     
-    //    @Environment(BiteViewModel.self) var biteVM
+    @Environment(BiteViewModel.self) var biteVM
     
     @State var selectedItem: PhotosPickerItem? = nil
     @State var selectedImage: Image? = nil
@@ -124,25 +124,25 @@ struct PostBiteModal: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
-                        
-                        //                        if let selectedProfile = profileVM.selectedProfile {
-                        //                            let newBite = Bite(
-                        //                                profile: selectedProfile,
-                        //                                dishName: dishName,
-                        //                                description: description,
-                        //                                servingSize: count,
-                        //                                dishImage: selectedImage ?? Image(systemName: "fork.knife.circle")
-                        //                            )
-                        //                            BiteVM.add(newBite)
-                        showModal.toggle()
+                        if let selectedProfile = profileVM.selectedProfile {
+                            let newBite = Bite(
+                                profile: selectedProfile,
+                                dishName: dishName,
+                                description: description,
+                                servingSize: count,
+                                dishImage: selectedImage ?? Image(systemName: "fork.knife.circle")
+                            )
+                            biteVM.add(newBite)
+                            showModal.toggle()
+                        }
                     }
                 }
+                
             }
-            
         }
     }
 }
 
 #Preview {
-    PostBiteModal(showModal: .constant(true))
+    PostBiteModal(showModal: .constant(true)).environment(BiteViewModel())
 }

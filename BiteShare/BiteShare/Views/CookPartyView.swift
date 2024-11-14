@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CookPartyView: View {
     
-    var hostVM = HostViewModel()
+//    var hostVM = HostViewModel()
+    @Environment(HostViewModel.self) var hostVM
+    
     @State var showModal: Bool = false
     
     var body: some View {
@@ -64,5 +66,5 @@ struct CookPartyView: View {
 }
 
 #Preview {
-    CookPartyView()
+    CookPartyView().environment(HostViewModel())
 }

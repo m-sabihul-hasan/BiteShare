@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-//@Observable
+@Observable
 class HostViewModel {
     
     var hosts = [
