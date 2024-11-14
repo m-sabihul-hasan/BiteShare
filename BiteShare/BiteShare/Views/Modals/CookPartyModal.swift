@@ -50,9 +50,9 @@ struct CookPartyModal: View {
                                     if let selectedProfile = profileVM.selectedProfile {
                                         selectedProfile.profileImage
                                             .resizable()
-                                        //                                .scaledToFill()
+//                                            .scaledToFill()
                                             .clipShape(Circle())
-                                            .frame(width: 100, height: 100)
+                                            .frame(width: 110, height: 110)
                                         
                                         
                                     } else {

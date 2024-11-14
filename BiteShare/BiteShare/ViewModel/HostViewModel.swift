@@ -20,7 +20,7 @@ class HostViewModel {
              description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 3),
         Host(profile: Profile(name: "Sakshi", surname: "Anil", nationality: "🇮🇳", profileImage: Image("sakshi")),
              description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 2),
-        Host(profile: Profile(name: "Maryam", surname: "IDK", nationality: "🇮🇷", profileImage: Image("maryam")),
+        Host(profile: Profile(name: "Maryam", surname: "Jeyhaninejad", nationality: "🇮🇷", profileImage: Image("maryam")),
              description: "I'm invincible", location: "Pozzouli 354", spot: 2)
     ]
     

@@ -16,7 +16,7 @@ class ProfileViewModel: ObservableObject {
         Profile(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("filippo")),
         Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("maria")),
         Profile(name: "Sakshi", surname: "Anil", nationality: "🇮🇳", profileImage: Image("sakshi")),
-        Profile(name: "Maryam", surname: "IDK", nationality: "🇮🇷", profileImage: Image("maryam"))
+        Profile(name: "Maryam", surname: "Jeyhaninejad", nationality: "🇮🇷", profileImage: Image("maryam"))
     ]
     
     @Published var selectedProfile: Profile?

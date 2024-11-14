@@ -24,7 +24,7 @@ class BiteViewModel {
         Bite(profile: Profile(name: "Sakshi", surname: "Anil", nationality: "🇮🇳", profileImage: Image("sakshi")),
              dishName: "Chicken Biryani", description: "Savor the rich flavors of my aromatic Chicken Biryani—a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed.", servingSize: 3, dishImage: Image("biryani")),
         
-        Bite(profile: Profile(name: "Maryam", surname: "IDK", nationality: "🇮🇷", profileImage: Image("maryam")),
+        Bite(profile: Profile(name: "Maryam", surname: "Jeyhaninejad", nationality: "🇮🇷", profileImage: Image("maryam")),
              dishName: "Ghomerh Sabzi", description: "Delight in the authentic taste of my Ghormeh Sabzi—a beloved Persian stew bursting with tender herbs, tangy dried limes, and succulent lamb. Slowly simmered with kidney beans, this dish offers a harmony of savory and sour notes. A true taste of Iran, perfect for sharing with loved ones.", servingSize: 3, dishImage: Image("sabzi"))
         
     ]
