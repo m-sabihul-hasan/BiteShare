@@ -11,7 +11,7 @@ struct TabsView: View {
     var body: some View {
         TabView {
             Tab("Today's Special", systemImage: "fork.knife.circle") {
-                HomeView()
+                BiteView()
             }
             
             Tab("Cook Party", systemImage: "party.popper") {

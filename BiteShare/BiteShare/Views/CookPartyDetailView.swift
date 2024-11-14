@@ -75,6 +75,6 @@ struct CookPartyDetailView: View {
 
 #Preview {
     CookPartyDetailView(
-        host:     Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("girl")), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 3)
+        host:     Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("maria")), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 3)
     )
 }

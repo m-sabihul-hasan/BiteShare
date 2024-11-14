@@ -12,11 +12,11 @@ import SwiftUI
 class ProfileViewModel: ObservableObject {
     
     @Published var profiles = [
-        Profile(name: "Sabihul", surname: "Hasan", nationality: "🇵🇰", profileImage: Image("boy")),
-        Profile(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("boy")),
-        Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("girl")),
-        Profile(name: "Sakshi", surname: "Anil", nationality: "🇮🇳", profileImage: Image("girl")),
-        Profile(name: "Maryam", surname: "IDK", nationality: "🇮🇷", profileImage: Image("girl"))
+        Profile(name: "Sabihul", surname: "Hasan", nationality: "🇵🇰", profileImage: Image("sabih")),
+        Profile(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("filippo")),
+        Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("maria")),
+        Profile(name: "Sakshi", surname: "Anil", nationality: "🇮🇳", profileImage: Image("sakshi")),
+        Profile(name: "Maryam", surname: "IDK", nationality: "🇮🇷", profileImage: Image("maryam"))
     ]
     
     @Published var selectedProfile: Profile?
