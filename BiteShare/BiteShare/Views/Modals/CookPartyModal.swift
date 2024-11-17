@@ -28,7 +28,7 @@ struct CookPartyModal: View {
         NavigationStack {
             Form {
                 Section() {
-                    VStack  {
+                    VStack {
                         HStack {
                             Spacer() // Center-align the text
                             Text("Host a Party")
@@ -50,10 +50,11 @@ struct CookPartyModal: View {
                                     if let selectedProfile = profileVM.selectedProfile {
                                         selectedProfile.profileImage
                                             .resizable()
-//                                            .scaledToFill()
+//                                            .scaledToFit()
                                             .clipShape(Circle())
-                                            .frame(width: 110, height: 110)
-                                        
+                                            .frame(width: 110, height: 130)
+                                            
+
                                         
                                     } else {
                                         VStack {
@@ -131,7 +132,8 @@ struct CookPartyModal: View {
                                 description: description,
                                 location: location,
                                 dateOfEvent: dateOfEvent,
-                                spot: count
+                                spot: count,
+                                spotLeft: count
                             )
                             hostVM.add(newHost)
                             showModal.toggle()

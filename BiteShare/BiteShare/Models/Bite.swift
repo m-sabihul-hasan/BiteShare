@@ -14,6 +14,7 @@ struct Bite: Identifiable {
     var profile: Profile
     var dishName: String
     var description: String = "No description"
+    var ingredients: String = "No ingredients"
     var servingSize: Int = 0
     var dishImage: Image = Image(systemName: "fork.knife.cricle")
     

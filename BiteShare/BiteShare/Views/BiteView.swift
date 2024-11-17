@@ -21,14 +21,13 @@ struct BiteView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                Image("bg")
+                Image("bg_new")
                     .resizable()
                     .ignoresSafeArea()
                 
                 VStack{
-                    
                     searchBar
-                        .padding(.horizontal)
+                        .padding(.horizontal, 10)
                         .padding(.vertical)
                         .background(RoundedRectangle(cornerRadius: 15, style:.continuous)
                             .fill(.white.opacity(0.1)))
@@ -72,11 +71,11 @@ struct BiteView: View {
                     .cornerRadius(15)
                     .offset(y: 20)
                 }
-                .offset(y: 100)
+                .offset(y: 30)
                 .sheet(isPresented: $showModal, content: {PostBiteModal(showModal: $showModal)})
             }
             .background(Color(hex: "#20808E"))
-            .offset(y: -80)
+            .offset(y: -10)
         }
         
     }

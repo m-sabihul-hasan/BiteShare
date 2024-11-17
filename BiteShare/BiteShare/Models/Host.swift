@@ -14,17 +14,9 @@ struct Host: Identifiable {
     var profile: Profile
     var description: String = "No Description"
     var location: String = "No Location"
+    var attendees: [String] = []
     var dateOfEvent: Date = Date()
-    var spot: Int = 0
-    
-    
-//    var profileImageData: Data?  // Data property to store the image persistently
-//    
-//    // Computed property to convert Data to UIImage
-//    var profileImage: Image? {
-//        guard let data = profileImageData, let uiImage = UIImage(data: data) else {
-//            return nil
-//        }
-//        return Image(uiImage: uiImage)
-//    }
+    var spot: Int = 5
+    var spotLeft: Int = 5
+
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BiteDetailView: View {
     
+    @State var showModal: Bool = false
+    
     var bite: Bite
     
     var body: some View {
@@ -100,6 +102,7 @@ struct BiteDetailView: View {
                     
                     Button("Book")
                     {
+                        showModal.toggle()
                     }
                     .frame(width: 100, height: 20)
                     .padding()
@@ -115,13 +118,8 @@ struct BiteDetailView: View {
 
                 Spacer()
             }
-//            .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button("Cancel") {
-//                        dismiss()
-//                    }
-//                }
-//            }
+            .sheet(isPresented: $showModal, content: {PostBiteModal(showModal: $showModal)})
+            
         }
         .toolbar(.hidden, for: .tabBar)
     }

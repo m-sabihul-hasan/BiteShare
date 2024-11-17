@@ -18,6 +18,7 @@ struct PostBiteModal: View {
     @State var name: String = ""
     @State var dishName: String = ""
     @State var description: String = ""
+    @State var ingredients: String = ""
     @State var count: Int = 0
     
     @Binding var showModal: Bool
@@ -99,9 +100,6 @@ struct PostBiteModal: View {
                     TextField("Name of Dish", text: $dishName)
                 }
                 Section() {
-                    TextField("Description", text: $description)
-                }
-                Section() {
                     HStack {
                         Text("Serving Size")
                         Spacer()
@@ -114,7 +112,27 @@ struct PostBiteModal: View {
                         }
                     }
                 }
-                
+                Section() {
+                    ZStack(alignment: .topLeading) {
+                        if ingredients.isEmpty {
+                            Text("Description")
+                                .foregroundColor(.black.opacity(0.3))
+                        }
+                        TextEditor(text: $ingredients)
+                    }
+                    .frame(height: 80) // Adjust as needed
+                }
+                Section() {
+                    ZStack(alignment: .topLeading) {
+                        // Placeholder Text
+                        if ingredients.isEmpty {
+                            Text("Ingredients")
+                                .foregroundColor(.black.opacity(0.3))
+                        }
+                        TextEditor(text: $ingredients)
+                    }
+                    .frame(height: 80) // Adjust as needed
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
