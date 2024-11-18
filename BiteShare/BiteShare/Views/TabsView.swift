@@ -17,10 +17,14 @@ struct TabsView: View {
             Tab("Cook Party", systemImage: "party.popper") {
                CookPartyView()
             }
+            
+            Tab("Profile", systemImage: "person.fill") {
+               ProfileView()
+            }
         }
     }
 }
 
 #Preview {
-    TabsView()
+    TabsView().environment(BiteViewModel())
 }

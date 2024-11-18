@@ -17,6 +17,4 @@ struct Host: Identifiable {
     var attendees: [String] = []
     var dateOfEvent: Date = Date()
     var spot: Int = 5
-    var spotLeft: Int = 5
-
 }

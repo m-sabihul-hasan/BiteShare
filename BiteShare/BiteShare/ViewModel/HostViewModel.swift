@@ -13,15 +13,20 @@ class HostViewModel {
     
     var hosts = [
         Host(profile: Profile(name: "Sabihul", surname: "Hasan", nationality: "🇵🇰", profileImage: Image("sabih")),
-             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 5, spotLeft: 5),
+             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354",
+             dateOfEvent: Calendar.current.date(from: DateComponents(year: 2024, month: 12, day: 17, hour: 14, minute: 30)) ?? Date(),  spot: 5),
         Host(profile: Profile(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("filippo")),
-             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 4, spotLeft: 4),
+             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354",
+             dateOfEvent: Calendar.current.date(from: DateComponents(year: 2024, month: 12, day: 12, hour: 14, minute: 30)) ?? Date(), spot: 4),
         Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("maria")),
-             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 3, spotLeft: 3),
+             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354",
+             dateOfEvent: Calendar.current.date(from: DateComponents(year: 2024, month: 10, day: 17, hour: 14, minute: 30)) ?? Date(), spot: 3),
         Host(profile: Profile(name: "Sakshi", surname: "Anil", nationality: "🇮🇳", profileImage: Image("sakshi")),
-             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", spot: 2, spotLeft: 2),
+             description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354",
+             dateOfEvent: Calendar.current.date(from: DateComponents(year: 2024, month: 11, day: 17, hour: 14, minute: 30)) ?? Date(), spot: 2),
         Host(profile: Profile(name: "Maryam", surname: "Jeyhaninejad", nationality: "🇮🇷", profileImage: Image("maryam")),
-             description: "I'm invincible", location: "Pozzouli 354", spot: 2, spotLeft: 2)
+             description: "I'm invincible", location: "Pozzouli 354",
+             dateOfEvent: Calendar.current.date(from: DateComponents(year: 2024, month: 12, day: 20, hour: 14, minute: 30)) ?? Date(), spot: 2)
     ]
     
     func add(_ host: Host) {

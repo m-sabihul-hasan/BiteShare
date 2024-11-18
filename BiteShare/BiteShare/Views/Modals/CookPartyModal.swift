@@ -132,8 +132,7 @@ struct CookPartyModal: View {
                                 description: description,
                                 location: location,
                                 dateOfEvent: dateOfEvent,
-                                spot: count,
-                                spotLeft: count
+                                spot: count
                             )
                             hostVM.add(newHost)
                             showModal.toggle()

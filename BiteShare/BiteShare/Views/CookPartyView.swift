@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CookPartyView: View {
     
-//    var hostVM = HostViewModel()
     @Environment(HostViewModel.self) var hostVM
     
     @State var showModal: Bool = false

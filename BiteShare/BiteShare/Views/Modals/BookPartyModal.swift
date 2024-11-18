@@ -31,7 +31,7 @@ struct BookPartyModal: View {
                         VStack {
                             HStack {
                                 Spacer() // Center-align the text
-                                Text("Book a Party")
+                                Text("Book \(host.profile.name)'s Party")
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .padding(.vertical)
@@ -90,7 +90,7 @@ struct BookPartyModal: View {
                             Text("How many spots?")
                             Spacer()
                             
-                            Stepper(value: $count, in: 0...host.spotLeft) {
+                            Stepper(value: $count, in: 0...host.spot) {
                                 // Display current count
                                 Text("\(count)")
                                     .font(.title2)
@@ -103,7 +103,7 @@ struct BookPartyModal: View {
                 
                 Button(action: {
                     if let selectedProfile = profileVM.selectedProfile {
-                        if host.spotLeft != 0 {
+                        if host.spot != 0 {
                             if count > 1 {
                                 host.attendees.append("\(selectedProfile.name) \(selectedProfile.surname) +\(count - 1)")
                             }
@@ -112,7 +112,7 @@ struct BookPartyModal: View {
                                 host.attendees.append("\(selectedProfile.name) \(selectedProfile.surname)")
                             }
                         }
-                        host.spotLeft -= count
+                        host.spot -= count
                         showModal.toggle()
                     }
                 }, label: {
@@ -134,6 +134,6 @@ struct BookPartyModal: View {
 }
 
 #Preview {
-    let mockHost =   Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("maria")), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", attendees: ["Sabih" , "Maria", "Filippo"], spot: 4, spotLeft: 1)
+    let mockHost =   Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("maria")), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", attendees: ["Sabih" , "Maria", "Filippo"], spot: 4)
     BookPartyModal(showModal: .constant(true), host: .constant(mockHost)).environment(HostViewModel())
 }

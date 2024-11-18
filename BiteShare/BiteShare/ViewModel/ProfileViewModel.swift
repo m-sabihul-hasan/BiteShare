@@ -24,7 +24,6 @@ class ProfileViewModel: ObservableObject {
     func add(_ profile: Profile) {
         profiles.insert(profile, at: 0)
     }
-
 }
 
 

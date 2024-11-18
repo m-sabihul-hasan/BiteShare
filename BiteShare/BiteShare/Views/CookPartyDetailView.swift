@@ -13,6 +13,7 @@ struct CookPartyDetailView: View {
     
     @State var host: Host
     
+    @State var showAlert: Bool = false
     
     var body: some View {
         
@@ -64,13 +65,18 @@ struct CookPartyDetailView: View {
             Spacer()
             
             Button(action: {
-                showModal.toggle()
+                if host.spot > 0 {
+                    showModal.toggle()
+                }
+                else{
+                    showAlert = true
+                }
             }, label: {
                 Text("Book a slot")
             })
             .padding()
             .bold()
-            .background(Color(hex: "#FF9640"))
+            .background(host.spot != 0 ? Color(hex: "#FF9640") : Color.gray.opacity(0.5))
             .foregroundStyle(.black)
             .cornerRadius(15)
             
@@ -78,6 +84,11 @@ struct CookPartyDetailView: View {
             
         }
         .sheet(isPresented: $showModal, content: {BookPartyModal(showModal: $showModal, host: $host)})
+        .alert("Limit Reached", isPresented: $showAlert) {
+            Button("OK", role: .cancel) {} // Default OK button for the alert
+        } message: {
+            Text("All slots have been booked.")
+        }
     }
     
 }
@@ -85,6 +96,6 @@ struct CookPartyDetailView: View {
 
 #Preview {
     CookPartyDetailView(
-        host:     Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("maria")), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", attendees: ["Sabih" , "Maria", "Filippo"], spot: 5, spotLeft: 2)
+        host:     Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("maria")), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", attendees: ["Sabih" , "Maria", "Filippo"], spot: 4)
     ).environment(HostViewModel())
 }

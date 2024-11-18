@@ -7,11 +7,23 @@
 
 import SwiftUI
 
+enum ActiveSheet: Identifiable {
+    case ingredients
+    case booking
+    
+    var id: Int {
+            switch self {
+            case .ingredients: return 1
+            case .booking: return 2
+            }
+        }
+}
+
 struct BiteDetailView: View {
     
-    @State var showModal: Bool = false
-    
-    var bite: Bite
+    @State var activeSheet: ActiveSheet? = nil
+    @State var bite: Bite
+    @State var showAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -73,6 +85,15 @@ struct BiteDetailView: View {
                         .multilineTextAlignment(.leading)
                         .lineLimit(nil)
                         .padding()
+                    
+                    Text("Attendees:\n\(bite.attendees.joined(separator: "\n"))")
+                        .bold()
+                        .frame(width: UIScreen.main.bounds.width - 40, alignment: .leading)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                    
+                    
+                    
                 }
                 .frame(height: 200)
                 .padding()
@@ -86,6 +107,8 @@ struct BiteDetailView: View {
                     
                     Button("Ingredients")
                     {
+                        activeSheet = .ingredients
+//                        showModal.toggle()
                     }
                     .frame(width: 100, height: 20)
                     .padding()
@@ -102,23 +125,44 @@ struct BiteDetailView: View {
                     
                     Button("Book")
                     {
-                        showModal.toggle()
+                        if bite.portionsLeft > 0 {
+                            activeSheet = .booking
+//                            showModal.toggle()
+                        }
+                        else {
+                            showAlert = true
+                        }
                     }
                     .frame(width: 100, height: 20)
                     .padding()
                     .bold()
-                    .background(Color(hex: "#FF9640"))
+                    .background(bite.portionsLeft != 0 ? Color(hex: "#FF9640") : Color.gray.opacity(0.5))
+                    //                    .background(Color(hex: "#FF9640"))
                     .foregroundStyle(.black)
                     .cornerRadius(15)
+//                    .disabled(bite.portionsLeft == 0)
                     
                     Spacer()
                     
                 }
                 .offset(y: -20)
-
+                
                 Spacer()
             }
-            .sheet(isPresented: $showModal, content: {PostBiteModal(showModal: $showModal)})
+            .sheet(item: $activeSheet) { sheet in
+                switch sheet {
+                case .ingredients:
+                    IngredientsModal(bite: $bite)
+                case .booking:
+                    BookBiteModal(activeSheet: $activeSheet, bite: $bite)
+                }
+            }
+
+            .alert("Limit Reached", isPresented: $showAlert) {
+                Button("OK", role: .cancel) {} // Default OK button for the alert
+            } message: {
+                Text("All portions have been booked.")
+            }
             
         }
         .toolbar(.hidden, for: .tabBar)
@@ -127,5 +171,7 @@ struct BiteDetailView: View {
 
 #Preview {
     BiteDetailView(bite: Bite(profile: Profile(name: "Sabihul", surname: "Hasan", nationality: "🇵🇰", profileImage: Image("sabih")),
-                              dishName: "Chicken Biryani", description: "Savor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed. \n\nSavor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed. \n\nSavor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed.", servingSize: 4, dishImage: Image("biryani")))
+                              dishName: "Chicken Biryani", description: "Savor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed. \n\nSavor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed. \n\nSavor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed.",
+                              ingredients: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                              servingSize: 4, portionsLeft: 3, attendees: ["Sabih" , "Maria", "Filippo"], dishImage: Image("biryani"))).environment(BiteViewModel())
 }
