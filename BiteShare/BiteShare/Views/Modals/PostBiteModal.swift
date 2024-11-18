@@ -118,10 +118,11 @@ struct PostBiteModal: View {
                             Text("Description")
                                 .foregroundColor(.black.opacity(0.3))
                         }
-                        TextEditor(text: $ingredients)
+                        TextEditor(text: $description)
                     }
                     .frame(height: 80) // Adjust as needed
                 }
+                
                 Section() {
                     ZStack(alignment: .topLeading) {
                         // Placeholder Text

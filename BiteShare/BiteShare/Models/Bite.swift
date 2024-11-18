@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Bite: Identifiable {
+struct Bite: Identifiable, Equatable {
     
     var id: UUID = UUID()
     var profile: Profile
@@ -20,4 +20,10 @@ struct Bite: Identifiable {
     var attendees: [String] = []
     var dishImage: Image = Image(systemName: "fork.knife.cricle")
     
+    // Ensure all properties that determine equality are included
+    static func == (lhs: Bite, rhs: Bite) -> Bool {
+        return lhs.id == rhs.id &&
+               lhs.dishName == rhs.dishName &&
+               lhs.profile == rhs.profile
+    }
 }

@@ -135,11 +135,11 @@ struct BookBiteModal: View {
 }
 
 
-//#Preview {
-//    let mockBite = Bite(profile: Profile(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("filippo")),
-//                        dishName: "Pizza Margherita",
-//                        description: "Enjoy the simplicity of my homemade Pizza Margherita—a crisp, thin crust topped with rich San Marzano tomato sauce, fresh mozzarella, and fragrant basil. Each bite is pure Italian tradition, finished with a drizzle of extra-virgin olive oil for an authentic, savory experience.",
-//                        ingredients: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-//                        servingSize: 6, portionsLeft: 6, attendees: ["Sabih", "Maryam", "Sakshi"], dishImage: Image("pizza"))
-//    BookBiteModal(activeSheet: .constant(true), bite: .constant(mockBite)).environment(BiteViewModel())
-//}
+#Preview {
+    let mockBite = Bite(profile: Profile(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("filippo")),
+                        dishName: "Pizza Margherita",
+                        description: "Enjoy the simplicity of my homemade Pizza Margherita—a crisp, thin crust topped with rich San Marzano tomato sauce, fresh mozzarella, and fragrant basil. Each bite is pure Italian tradition, finished with a drizzle of extra-virgin olive oil for an authentic, savory experience.",
+                        ingredients: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                        servingSize: 6, portionsLeft: 6, attendees: ["Sabih", "Maryam", "Sakshi"], dishImage: Image("pizza"))
+    BookBiteModal(activeSheet: .constant(.ingredients), bite: .constant(mockBite)).environment(BiteViewModel()).environmentObject(ProfileViewModel())
+}

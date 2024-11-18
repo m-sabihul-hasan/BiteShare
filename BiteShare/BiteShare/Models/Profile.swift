@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Profile: Identifiable {
+struct Profile: Identifiable, Equatable{
     
     var id: UUID = UUID()
     var name: String
