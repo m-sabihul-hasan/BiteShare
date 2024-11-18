@@ -23,7 +23,7 @@ struct PostBiteModal: View {
     
     @Binding var showModal: Bool
     
-    @ObservedObject var profileVM = ProfileViewModel()
+    @EnvironmentObject var profileVM: ProfileViewModel
     
     var body: some View {
         NavigationStack{
@@ -161,5 +161,5 @@ struct PostBiteModal: View {
 }
 
 #Preview {
-    PostBiteModal(showModal: .constant(true)).environment(BiteViewModel())
+    PostBiteModal(showModal: .constant(true)).environment(BiteViewModel()).environmentObject(ProfileViewModel())
 }
