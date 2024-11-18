@@ -12,7 +12,8 @@ struct CookPartyModal: View {
     
     @Environment(HostViewModel.self) var hostVM
     
-    @ObservedObject var profileVM = ProfileViewModel()
+//    @ObservedObject var profileVM = ProfileViewModel()
+    @EnvironmentObject var profileVM: ProfileViewModel
     
     @State var selectedItem: PhotosPickerItem? = nil
     @State var selectedImage: Image? = nil
@@ -147,5 +148,5 @@ struct CookPartyModal: View {
 }
 
 #Preview {
-    CookPartyModal(showModal: .constant(true)).environment(HostViewModel())
+    CookPartyModal(showModal: .constant(true)).environment(HostViewModel()).environmentObject(ProfileViewModel())
 }

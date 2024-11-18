@@ -11,7 +11,8 @@ struct BookPartyModal: View {
     
     @Environment(HostViewModel.self) var hostVM
     
-    @ObservedObject var profileVM = ProfileViewModel()
+    @EnvironmentObject var profileVM: ProfileViewModel
+//    @ObservedObject var profileVM = ProfileViewModel()
     
     @State var count: Int = 0
     
@@ -135,5 +136,5 @@ struct BookPartyModal: View {
 
 #Preview {
     let mockHost =   Host(profile: Profile(name: "Maria", surname: "Petrillo", nationality: "🇮🇹", profileImage: Image("maria")), description: "I wanna make pasta Nerano join me if you are interested", location: "Pozzouli 354", attendees: ["Sabih" , "Maria", "Filippo"], spot: 4)
-    BookPartyModal(showModal: .constant(true), host: .constant(mockHost)).environment(HostViewModel())
+    BookPartyModal(showModal: .constant(true), host: .constant(mockHost)).environment(HostViewModel()).environmentObject(ProfileViewModel())
 }

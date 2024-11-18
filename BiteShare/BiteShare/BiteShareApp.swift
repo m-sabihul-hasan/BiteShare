@@ -11,6 +11,7 @@ import SwiftUI
 struct BiteShareApp: App {
     // State variable to control which view to show
         @State private var showLaunchScreen = true
+    @StateObject private var profileVM = ProfileViewModel()
         
         var body: some Scene {
             WindowGroup {
@@ -26,6 +27,7 @@ struct BiteShareApp: App {
                     TabsView()
                         .environment(BiteViewModel())
                         .environment(HostViewModel())
+                        .environmentObject(ProfileViewModel())
                 }
             }
         }}

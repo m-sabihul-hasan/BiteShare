@@ -155,7 +155,6 @@ struct PostBiteModal: View {
                         }
                     }
                 }
-                
             }
         }
     }

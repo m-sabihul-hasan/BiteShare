@@ -26,5 +26,5 @@ struct TabsView: View {
 }
 
 #Preview {
-    TabsView().environment(BiteViewModel())
+    TabsView().environment(BiteViewModel()).environment(HostViewModel()).environmentObject(ProfileViewModel())
 }
