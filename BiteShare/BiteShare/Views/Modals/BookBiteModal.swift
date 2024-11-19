@@ -11,7 +11,7 @@ struct BookBiteModal: View {
     
     @Environment(BiteViewModel.self) var biteVM
     
-    @ObservedObject var profileVM = ProfileViewModel()
+    @EnvironmentObject var profileVM: ProfileViewModel
     
     @State var count: Int = 0
     
