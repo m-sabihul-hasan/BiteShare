@@ -16,7 +16,7 @@ class BiteViewModel {
              dishName: "Chicken Biryani",
              description: "Savor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed. \n\nSavor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed. \n\nSavor the rich flavors of my aromatic Chicken Biryani — a timeless blend of tender chicken, fragrant basmati rice, and a medley of spices, all slow-cooked to perfection. Each bite bursts with warmth, balanced spices, and a touch of saffron. A perfect feast for the senses, meant to be shared and enjoyed.",
              ingredients: "Chicken, yogurt, ginger-garlic paste, red chili powder, turmeric powder, garam masala, salt, lemon juice, basmati rice, water, bay leaf, green cardamom pods, cloves, cinnamon stick, star anise (optional), onions, ghee or cooking oil, fresh mint leaves, fresh coriander leaves, saffron strands or food coloring, fried onions, nutmeg and mace powder  green chilies, boiled egg, and potato.",
-             servingSize: 4, portionsLeft: 4, dishImage: Image("biryani")),
+             servingSize: 4, portionsLeft: 4, dishImage: Image("biryani_new")),
         
         Bite(profile: Profile(name: "Filippo", surname: "Caliendo", nationality: "🇮🇹", profileImage: Image("filippo")),
              dishName: "Pizza Margherita",
